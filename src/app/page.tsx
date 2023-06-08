@@ -4,7 +4,6 @@ import { DatabaseSelector } from "./components/DatabaseSelector";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import clientPromise from "@/lib/mongodb";
-import { connect } from "http2";
 
 type PageProps = {
     isConnected: boolean;
@@ -53,6 +52,7 @@ export default async function Home() {
                     </Button>
                 </div>
             )}
+            <Link href="/search">Search</Link>
         </div>
     );
 }

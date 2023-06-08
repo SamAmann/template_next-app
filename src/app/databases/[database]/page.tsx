@@ -23,6 +23,9 @@ export function generateMetadata({ params: { database } }: PageProps) {
 export default async function Page({ params: { database } }: PageProps) {
     // connect to the database and get all its collections
     const db = await connectToDB(database);
+    if (!db) {
+        return <div>Database not found</div>;
+    }
     const collections = await db.listCollections().toArray();
 
     const client = await clientPromise;

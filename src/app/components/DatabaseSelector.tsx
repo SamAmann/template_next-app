@@ -34,17 +34,30 @@ export function DatabaseSelector({ dbNames }: { dbNames: string[] }) {
     });
     // the selector navigate the user to the selected database.
     // DOES NOT WORK AT THE MOMENT
-    async function onSubmit(values: z.infer<typeof FormSchema>) {
-        try {
-            // navigate to the selected database
-            await usePathname(`/databases/${values.dbNames}`);
-        } catch (error) {
-            toast({
-                title: "Error",
-                description: error.message,
-                variant: "danger",
-            });
-        }
+    // async function onSubmit(values: z.infer<typeof FormSchema>) {
+    //     try {
+    //         // navigate to the selected database
+    //         await usePathname(`/databases/${values.dbNames}`);
+    //     } catch (error) {
+    //         toast({
+    //             title: "Error",
+    //             description: error.message,
+    //             variant: "danger",
+    //         });
+    //     }
+    // }
+    function onSubmit(data: z.infer<typeof FormSchema>) {
+        toast({
+            title: "You submitted the following values:",
+            description: (
+                <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+                    <code className="text-white">
+                        {JSON.stringify(data, null, 2)}
+                    </code>
+                </pre>
+            ),
+            variant: "success",
+        });
     }
 
     return (

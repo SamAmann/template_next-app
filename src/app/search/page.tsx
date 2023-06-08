@@ -2,13 +2,12 @@
 
 "use client";
 
-interface PageProps {
-    params: {};
-    searchParams: {
-        // [key: string]: string | string[] | undefined
-    };
-}
+import { SearchPage } from "./components/SearchPage";
 
-export default function Page({}: PageProps) {
-    return <div>Page</div>;
+export default function Page() {
+    return (
+        <div>
+            <SearchPage />
+        </div>
+    );
 }
