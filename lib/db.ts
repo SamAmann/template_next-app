@@ -1,14 +1,17 @@
-import clientPromise from "./mongodb";
+import { MongoClient, Db } from 'mongodb';
+import clientPromise from '@/lib/mongodb';
 
-export async function connectToDB(dbName?: string) {
-   try {
-       const client = await clientPromise;
-        const db = await client.db(dbName);
 
-    } catch(e) {
+export async function connectToDB(dbName?: string): Promise<Db | undefined> {
+    try {
+        const client = await clientPromise;
+        const db = client.db(dbName);
+        return db;
+    } catch (e) {
         console.error(e);
+        return undefined;
     }
-};
+}
 
 export async function getMongoClient() {
     try {

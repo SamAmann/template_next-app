@@ -4,6 +4,12 @@ import { DatabaseSelector } from "./components/DatabaseSelector";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import clientPromise from "@/lib/mongodb";
+import { connect } from "http2";
+
+type PageProps = {
+    isConnected: boolean;
+    dbNames: string[];
+};
 
 // Server side pages (like this one) are cached by default. This means that any async data
 // will only be fetched once, and then the page will be served from the cache on subsequent
@@ -26,7 +32,7 @@ export default async function Home() {
     const client = await clientPromise;
     const dbs = client.db().admin().listDatabases();
     const dbNames = (await dbs).databases.map((db) => db.name);
-    const isConnected = dbNames.length > 0;
+    const isConnected = client ? true : false;
     return (
         <div className="flex flex-col p-8 gap-8">
             {isConnected ? (

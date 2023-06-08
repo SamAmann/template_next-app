@@ -6,9 +6,8 @@ if (!process.env.MONGODB_URI) {
 
 const uri = process.env.MONGODB_URI
 const options = {
-  useNewUrlParser: true,
   auth: {
-    user: process.env.MONGODB_USERNAME,
+    username: process.env.MONGODB_USERNAME,
     password: process.env.MONGODB_PASSWORD
   }
 } as MongoClientOptions
