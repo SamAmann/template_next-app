@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-    title: "Template Next/MongoDB",
+    title: "template_next-app",
     description: "A template for Sam's Apps",
 };
 
