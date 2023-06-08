@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+
+    --background: #ffffff;
+    --foreground: #505050;
+
+    --muted: #f2f2f7;
+    --muted-foreground: #b1b1b1;
+
+    --popover: #ffffff;
+    --popover-foreground: #383838;
+
+    --card: #ffffff;
+    --card-foreground: #383838;
+
+    --border: #d7dce7;
+    --input: #d7dce7;
+
+    --primary: #383838;
+    --primary-foreground: #d6d9da;
+
+    --secondary: #d2d5d7;
+    --secondary-foreground: #383838;
+
+    --accent: #d2d5d7;
+    --accent-foreground: #383838;
+
+    --danger: #ff0000;
+    --danger-foreground: #fff0f0;
+
+    --success: #5ec05e;
+    --success-foreground: #ceffce;
+
+    --info: #32b3e6;
+    --info-foreground: #dae6ee;
+
+    --warning: #ffd700;
+    --warning-foreground: #fff3d1;
+
+    --ring: #d7e0e6;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #381c25;
+    --foreground: #d5d0eb;
+
+    --muted: #383838;
+    --muted-foreground: #db9ab5;
+
+    --popover: #381c25;
+    --popover-foreground: #d7cc9d;
+
+    --card: #381c25;
+    --card-foreground: #d5d0eb;
+
+    --border: #36334d;
+    --input: #36334d;
+
+    --primary: #d2d5d7;
+    --primary-foreground: #383838;
+
+    --secondary: #383838;
+    --secondary-foreground: #d2d5d7;
+
+    --accent: #36334d;
+    --accent-foreground: #d2d5d7;
+
+    --danger: #ff2032;
+    --danger-foreground: #d2d5d7;
+
+    --success: #8dbd73;
+    --success-foreground: #282828;
+
+    --info: #383838;
+    --info-foreground: #d35f39;
+
+    --warning: #f7e161;
+    --warning-foreground: #6a2f1e;
+
+    --ring: #36334d;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
